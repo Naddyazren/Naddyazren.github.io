@@ -1,0 +1,207 @@
+:root{
+    --text-light: #e9e9e9;
+    --text-dark: #363636;
+    --text-btn : #816df2;
+    --text-yellow: #dae26a;
+    --text-selected : #34D399;
+    --cell-size: 100px;
+
+
+    /* IMAGES */
+    --char-1: url(./images/chopper_icon_by_classy_blue_dauukp3-fullview.png);
+    --char-2: url(./images/sanji_icon_by_classy_blue_dauuk9u-fullview.png);
+    --char-3: url(./images/luffy_icon_by_classy_blue_dauuj70-fullview.png);
+    --char-4: url(./images/zoro_icon_by_classy_blue_dauujf5-fullview.png);
+
+}
+
+* > * {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    cursor: url(https://cur.cursors-4u.net/anime/ani-12/ani1162.ani), url(https://cur.cursors-4u.net/anime/ani-12/ani1162.gif), auto;
+    max-width: auto;
+    margin: 0 auto;
+    background-attachment: fixed;
+}
+@font-face {
+    font-family: "One-Piece1";
+    src: url(../10-project-ttt/one\ piece\ font.ttf);
+  }
+.title{
+    font-family:"One-Piece1";
+    color: gold;
+    text-align: center;
+    font-size: 3em;
+}
+body{
+    background: url(../x-o/one-piece-anime.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* starting window */
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.primary-btn{
+    border: none;
+    background: var(--text-btn);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--text-light);
+    margin-top: 2em;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.text-light{
+    color: var(--text-light);
+}
+
+.text-yellow{
+    color: var(--text-yellow);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.primary-btn:hover{
+    background: var(--text-yellow);
+    color: var(--text-dark);
+}
+
+.start-game .profile .img > img{
+    cursor: pointer;
+}
+
+.start-game .profile .img > img:hover{
+    background-color: var(--text-yellow);
+}
+
+.start-game.hide{
+    display: none;
+}
+
+
+/* Main Game Board */
+#board{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    background-color: var(--text-light);
+    row-gap: 3px;
+    column-gap: 3px;
+}
+
+.block{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: rgb(226, 139, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* cursor: url(https://cur.cursors-4u.net/anime/ani-12/ani1162.ani), url(https://cur.cursors-4u.net/anime/ani-12/ani1162.gif), auto; */
+}
+
+.block.x, .block.x2,
+.block.y, .block.y2{
+    cursor: not-allowed;
+}
+
+.board.x .block:not(.x):not(.y):hover{
+    background: var(--char-1)  var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.x2 .block:not(.x2):not(.y2):hover{
+    background: var(--char-2) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.y .block:not(.y):not(.x):hover{
+    background: var(--char-3) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+.board.y2 .block:not(.y2):not(.x2):hover{
+    background: var(--char-4) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+
+/* x is equal to first team*/
+/* y is equal to 2nd team */
+.block.x{
+    background: var(--char-1) pink no-repeat;
+    background-size: cover;
+}
+
+.block.x2{
+    background: var(--char-2) rgb(209, 37, 37) no-repeat;
+    background-size: cover;
+}
+
+
+.block.y{
+    background: var(--char-3) rgb(8, 125, 235)  no-repeat;
+    background-size: cover;
+}
+
+.block.y2{
+    background: var(--char-4) rgb(36, 202, 77) no-repeat;
+    background-size: cover;
+}
+
+/* Draw and Winner Msg Window */
+.start-game, .draw-msg, .winner-msg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../Untitled\ design.png);
+    background-size: 100%;
+}
+
+.draw-msg, .winner-msg{
+    display: none;
+}
+
+.draw-msg.show, .winner-msg.show{
+    display: flex;
+}
+
+.start-game .profile .img > img.selected{
+    background-color: var(--text-selected);
+    border: 2px solid var(--text-light);
+    border-radius: 20px;
+}
+
+.win{
+    background-color: var(--text-selected) !important;
+}
+
+.scoreboard{
+    display: grid;
+    text-align: center;
+}
+
+@font-face {
+    font-family: "PlayersFont";
+    src: url(../resneo.otf);
+  }
+.players, .marks{
+    font-family: "PlayersFont";
+    font-size: 30px;
+
+}
